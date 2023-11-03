@@ -1,6 +1,6 @@
-# BaoBank
+# TonyBank
 
-BaoBank - your financial satellite!
+TonyBank - your financial satellite!
 
 ## Available Scripts
 

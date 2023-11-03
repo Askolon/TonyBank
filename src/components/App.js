@@ -15,9 +15,11 @@ import GiveGifts from "./pages/private/giveGifts/GiveGifts";
 import PhoneBook from "./pages/private/phoneBook/PhoneBook";
 import Deposit from "./pages/private/deposit/Deposit";
 import ErrorPage from "./pages/errors/ErrorPage";
+import WelcomeScreen from './pages/public/welcomeScreen/WelcomeScreen';
 
 // eslint-disable-next-line no-unused-vars
 import appStyle from "../scss/app.scss";
+import Login from "./pages/public/login/Login";
 
 function App() {
   const publicPages = [
@@ -40,6 +42,14 @@ function App() {
     {
       element: <Deposit />,
       path: '/deposit'
+    },
+    {
+      element: <WelcomeScreen/>,
+      path: '/welcomescreen'
+    },
+    {
+      element: <Login/>,
+      path: '/login'
     },
   ];
 

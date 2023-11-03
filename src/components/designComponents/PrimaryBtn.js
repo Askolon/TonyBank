@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 
 const customBtnStyle = {
-  backgroundColor: "#272643",
+  backgroundColor: "#687EFF",
   color: "white",
   borderRadius: "20px",
   padding: "10px 25px",

@@ -1,0 +1,51 @@
+@import "../../../../scss/app.scss";
+.login{
+
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    .content{
+        background-color: $deepColor;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            font-size: larger;
+            color: white;
+            font-weight: 500;
+        }
+       img{
+        width: 25%;
+       }
+    }
+    .txt_ctn_login{
+        background-color: $deepColor;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            text-align: center;
+            color: #FFFFFF;
+            font-weight: 100;
+            span{
+                font-weight: 500;
+
+            }
+        }
+    }
+    .waves{
+        width: 100vw;
+        background-color: white;
+        
+    }
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text_ctn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
