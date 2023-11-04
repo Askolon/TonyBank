@@ -2,14 +2,13 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 
 const customBtnStyle = {
-  backgroundColor: "#687EFF",
-  color: "white",
+  backgroundColor: "rgb(247, 247, 247)",
+  color: "black",
   borderRadius: "10px",
   padding: "10px 25px",
-  width: "100%"
 };
 
-const PrimaryBtn = ({ text, onClick, icon = null, disabled = false }) => {
+const GrayBtn = ({ text, onClick, icon = null, disabled = false }) => {
   return (
     <Button
       style={customBtnStyle}
@@ -22,4 +21,4 @@ const PrimaryBtn = ({ text, onClick, icon = null, disabled = false }) => {
   );
 };
 
-export default PrimaryBtn;
+export default GrayBtn;

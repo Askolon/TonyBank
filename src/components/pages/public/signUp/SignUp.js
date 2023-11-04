@@ -1,72 +1,114 @@
 import React, { useState } from "react";
-
-import useService from "../../../../services/requests";
-import { TextField } from "@mui/material";
+import Requests from "../../../../services/requests";
 import PrimaryBtn from "../../../designComponents/PrimaryBtn";
 import SendIcon from "@mui/icons-material/Send";
 import InputCustom from "../../../designComponents/InputCustom";
+import GrayBtn from '../../../../components/designComponents/GrayBtn';
+import './signUp.scss';
+import { Link } from "react-router-dom";
 
 function SignUP(props) {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(false);
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirm_password, setConfirmPassword] = useState('');
+    const requests = new Requests();
+    const [message, setMessage] = useState(false);
 
-  const { POST_REG_USER } = useService();
-
-  const handleDataChange = (e, setData) => {
-    setData(e.target.value);
-  };
-
-  const onRegistration = () => {
-    const formData = {
-      username: name,
-      password: password,
-      confirm_password: confirmPassword,
+    const handleEmailChange = (e) => {
+        setName(e.target.value);
     };
-    POST_REG_USER(formData);
-  };
-  const handleSubmit = () => {
-    console.log("Submit");
-  };
 
-  return (
-    <div>
-      SignUP
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          onRegistration();
-        }}
-      >
-        <InputCustom
-          placeholder="Name"
-          type='text'
-          value={name}
-          onChange={(e) => {
-            handleDataChange(e, setName);
-          }}
-        />
-        <input
-          placeholder="Password"
-          type="text"
-          value={password}
-          onChange={(e) => {
-            handleDataChange(e, setPassword);
-          }}
-        />
-        <input
-          placeholder="Confirm password"
-          type="text"
-          value={confirmPassword}
-          onChange={(e) => {
-            handleDataChange(e, setConfirmPassword);
-          }}
-        />
-        <PrimaryBtn disabled={true} text="Submit" onClick={handleSubmit} icon={<SendIcon />} />
-        <PrimaryBtn text="Submit" onClick={handleSubmit} />
-      </form>
-    </div>
-  );
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+    const handleConfirmPassword = (e)=>{
+      setConfirmPassword(e.target.value);
+    }
+
+    const handleLogin = () => {
+        const userData = {
+            "username": name,
+            "password": password,
+            "confirm_password": confirm_password
+        };
+        if(password==confirm_password){
+          requests.POST_REG_USER(userData)
+            .then(data => {
+                if (data.id) {
+                    setError(false);
+                    console.log(data);
+                    <Link to={"/signin"}></Link>
+                } else {
+                    setError(true);
+                }
+            })
+            .catch((error) => {
+                setError(true);
+                console.error(error);
+            });
+        }else{
+          setMessage(true);
+          console.log("Wrong Confirm Password");
+        }
+
+    };
+
+    return (
+        <section id='signin'>
+            <div className="container">
+            <div className='bottom_block pt-5'>
+                    <div className="row">
+                        <div className="col">
+                            <h1>Login and start transfering</h1>
+                        </div>
+                        <div className="col buttons pt-3 pb-5">
+                            <GrayBtn text="Google"/>
+                            <GrayBtn text="Facebook"/>
+                        </div>
+                    </div>
+                </div>
+                <div className="login_inputs">
+                    <div className="row">
+                        <div className="col mt-1">
+                            <InputCustom
+                                placeholder="Enter your email"
+                                type="email"
+                                value={name}
+                                onChange={e =>{handleEmailChange(e, setName) }} />
+                        </div>
+                        <div className="col mt-3">
+                            <InputCustom 
+                            placeholder="Enter your password" 
+                            type='password' 
+                            value={password} 
+                            onChange={e =>{ handlePasswordChange(e, setPassword)}} />
+                        </div>
+                        <div className="col mt-3">
+                            <InputCustom 
+                            placeholder="Confirm your password" 
+                            type='password' 
+                            value={confirm_password} 
+                            onChange={e =>{ handleConfirmPassword(e, setConfirmPassword)}} />
+                        </div>
+                        <div>
+                            {message && <p>Wrong confirm password</p>}
+                        </div>
+                    </div>
+                </div>
+                <div className="login_btns mt-1 pt-5">
+                    <div className="row">
+                        <div className="col">
+                            <PrimaryBtn text="Create" onClick={handleLogin} />
+                        </div>
+                        <div className="col pt-2">
+                            <Link to={"/signin"}>Already have account?</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
 
 export default SignUP;

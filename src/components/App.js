@@ -56,7 +56,7 @@ function App() {
   const PrivatePages = [
     {
       element: <Dashboard />,
-      path: '/'
+      path: '/dashboard'
     },
     {
       element: <Profile />,

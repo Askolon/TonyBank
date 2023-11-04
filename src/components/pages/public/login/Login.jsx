@@ -30,7 +30,8 @@ export default function Login() {
         </div>
         <div className="row">
             <div className="col button pt-5">
-                <PrimaryBtn text="create new account"/>
+                <Link to={"/signup"}><PrimaryBtn text="create new account"/></Link>
+                
             </div>
         </div>
         <div className="row">
