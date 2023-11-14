@@ -1,0 +1,26 @@
+.transaction_item{
+    .avatar{
+        height: 50px;
+        width: 50px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    .username{
+        font-weight: 500;
+    }
+    .datetransaction{
+        font-weight: 300;
+        font-size: small;
+    }
+    .summe{
+        justify-content: flex-start;
+        align-items: center;
+        h2{
+            font-weight: 600;
+            font-size: small;
+            text-align: center;
+            justify-content: flex-start;
+        }
+    }
+}

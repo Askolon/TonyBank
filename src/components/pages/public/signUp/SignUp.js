@@ -70,21 +70,21 @@ function SignUP(props) {
                 </div>
                 <div className="login_inputs">
                     <div className="row">
-                        <div className="col mt-1">
+                        <div className="col col-lg-6 mt-1">
                             <InputCustom
                                 placeholder="Enter your email"
                                 type="email"
                                 value={name}
                                 onChange={e =>{handleEmailChange(e, setName) }} />
                         </div>
-                        <div className="col mt-3">
+                        <div className="col col-lg-6 mt-3">
                             <InputCustom 
                             placeholder="Enter your password" 
                             type='password' 
                             value={password} 
                             onChange={e =>{ handlePasswordChange(e, setPassword)}} />
                         </div>
-                        <div className="col mt-3">
+                        <div className="col col-lg-6 mt-3">
                             <InputCustom 
                             placeholder="Confirm your password" 
                             type='password' 
@@ -98,7 +98,7 @@ function SignUP(props) {
                 </div>
                 <div className="login_btns mt-1 pt-5">
                     <div className="row">
-                        <div className="col">
+                        <div className="col col-lg-4">
                             <PrimaryBtn text="Create" onClick={handleLogin} />
                         </div>
                         <div className="col pt-2">

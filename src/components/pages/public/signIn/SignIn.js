@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputCustom from '../../../designComponents/InputCustom';
 import PrimaryBtn from '../../../../components/designComponents/PrimaryBtn';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GrayBtn from '../../../../components/designComponents/GrayBtn';
 import './signIn.scss';
 import Requests from '../../../../services/requests';
@@ -11,6 +11,7 @@ function SignIn(props) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const requests = new Requests();
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setName(e.target.value);
@@ -28,9 +29,11 @@ function SignIn(props) {
 
         requests.POST_LOG_USER(userData)
             .then(data => {
-                if (data.id) {
+                if (data.token) {
                     setError(false);
-                    console.log(data);
+                    localStorage.setItem('token', data.token);
+                    navigate("/dashboard");
+                    console.log('Токен сохранен в localStorage:', data);
                 } else {
                     setError(true);
                     console.log("Its work");
@@ -59,14 +62,14 @@ function SignIn(props) {
                 </div>
                 <div className="login_inputs">
                     <div className="row">
-                        <div className="col mt-3">
+                        <div className="col col-lg-6 mt-3">
                             <InputCustom
                                 placeholder="Enter your email"
                                 type="email"
                                 value={name}
                                 onChange={e =>{handleEmailChange(e, setName) }} />
                         </div>
-                        <div className="col mt-3">
+                        <div className="col col-lg-6 mt-3">
                             <InputCustom 
                             placeholder="Enter your password" 
                             type='password' 

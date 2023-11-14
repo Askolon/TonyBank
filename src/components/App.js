@@ -20,6 +20,10 @@ import WelcomeScreen from './pages/public/welcomeScreen/WelcomeScreen';
 // eslint-disable-next-line no-unused-vars
 import appStyle from "../scss/app.scss";
 import Login from "./pages/public/login/Login";
+import Transactions from "./pages/partials/transactions/Transactions";
+import Contacts from "./pages/partials/contacts/Contacts";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const publicPages = [
@@ -47,9 +51,13 @@ function App() {
       element: <WelcomeScreen/>,
       path: '/welcomescreen'
     },
-    {
+    { 
       element: <Login/>,
       path: '/login'
+    },
+    { 
+      element: <Login/>,
+      path: '/'
     },
   ];
 
@@ -66,8 +74,16 @@ function App() {
       element: <GiveGifts />,
       path: '/givegifts'
     },
-  ];
+    {
+      element: <Transactions />,
+      path: '/transactions'
+    },
+    {
+      element: <Contacts />,
+      path: '/contacts'
+    },
 
+  ];
 
 
   return (
