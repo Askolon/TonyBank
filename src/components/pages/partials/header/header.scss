@@ -1,5 +1,4 @@
-
-.header{
+.header {
     padding-left: 1em;
     padding-right: 1em;
     color: white;
@@ -11,63 +10,81 @@
     font-weight: 400;
     line-height: 30px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    .header_ctn{
+
+    .header_ctn {
         display: flex;
         align-items: center;
         justify-content: center;
-        h1{
+
+        h1 {
             font-size: larger;
             font-weight: 400;
         }
-        .avatar_ctn{
+
+        .avatar_ctn {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            img{
-                border-radius: 60px;
-                box-shadow: 5px 5px 10px black;
-                width: 25%;
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                box-shadow: 2px 2px 5px black;
             }
         }
-        
+
     }
-    .welcome_name{
+
+    .welcome_name {
         font-weight: 200;
         opacity: 0.7;
     }
-    .balance{
+
+    .balance {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .bell{
+
+        .bellcoll {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            text-align: left;
-            img{
-                padding: 5%;
-                background-color: rgba(0, 0, 0, 0.219);
-                border-radius: 500px;
-                width: 25%;
+
+            .bell {
+                background-color: rgba(105, 102, 102, 0.383);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                span{
+                    transform: translate(-80%, -50%) !important;
+                }
             }
         }
-        h1{
+
+        h1 {
             font-size: xx-large;
             font-weight: 500;
             line-height: 40px;
         }
     }
+
     .modal {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Полупрозрачный черный фон */
         display: flex;
         justify-content: center;
         align-items: center;
-        .modal_content{
+
+        .modal_content {
             padding: 15px 20px;
             background-color: rgb(255, 255, 255);
             width: 75%;
@@ -79,25 +96,27 @@
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            .logout{
+
+            .logout {
                 background-color: rgb(250, 178, 44);
                 padding: 5px 15px;
                 border-radius: 5px;
             }
-            .close_btn{
+
+            .close_btn {
                 background-color: greenyellow;
                 padding: 5px 15px;
                 border: 5px;
                 box-shadow: 2px 2px 5px rgb(119, 187, 18);
             }
         }
-      }
-    
+    }
+
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .header{
+    .header {
         padding-left: 5em;
         padding-right: 5em;
         color: white;
@@ -109,48 +128,57 @@
         font-weight: 400;
         line-height: 30px;
         font-family: 'M PLUS Rounded 1c', sans-serif;
-        .header_ctn{
+
+        .header_ctn {
             display: flex;
             align-items: center;
             justify-content: center;
-            h1{
+
+            h1 {
                 font-size: xxx-large;
                 font-weight: 400;
             }
-            .avatar_ctn{
+
+            .avatar_ctn {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                img{
+
+                img {
                     border-radius: 100px;
                     box-shadow: 5px 5px 10px black;
                     width: 15%;
                 }
             }
-            
+
         }
-        .welcome_name{
+
+        .welcome_name {
             font-size: x-large;
             font-weight: 400;
             opacity: 0.7;
         }
-        .balance{
+
+        .balance {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            .bell{
+
+            .bell {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
                 text-align: left;
-                img{
+
+                img {
                     padding: 3%;
                     background-color: rgba(0, 0, 0, 0.219);
                     border-radius: 500px;
                     width: 15%;
                 }
             }
-            h1{
+
+            h1 {
                 font-size: xxx-large;
                 font-weight: 500;
                 line-height: 40px;

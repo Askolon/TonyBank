@@ -24,6 +24,7 @@ import Transactions from "./pages/partials/transactions/Transactions";
 import Contacts from "./pages/partials/contacts/Contacts";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SendMoney from "./pages/private/sendMoney/SendMoney";
 
 function App() {
   const publicPages = [
@@ -81,6 +82,10 @@ function App() {
     {
       element: <Contacts />,
       path: '/contacts'
+    },
+    {
+      element: <SendMoney />,
+      path: '/sendmoney'
     },
 
   ];

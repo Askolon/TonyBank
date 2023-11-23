@@ -6,6 +6,8 @@ class Requests{
             signup: 'signup',
             destroy_session: "destroy-session",
             me: 'me',
+            users:"users",
+            transaction:"transaction"
         }
     }
 
@@ -90,6 +92,43 @@ class Requests{
         });
     }
 
+    //user list
+    GET_USERS_LIST(token){
+        return fetch(this.apiBase + this.routes.users,{
+            method:"GET",
+            headers: {
+                "Content-Type": "application/json",
+                "x-access-token": token
+            }
+        })
+        .then(res => res.json())
+        .catch(error => {
+            console.error('Ошибка при получении данных пользователей:', error);
+        })
+    }
+
+    // Send the money, Transaction
+    POST_TRANSACTION_TO_USER(token, data) {
+        return fetch(this.apiBase + this.routes.transaction, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token
+          },
+          body: JSON.stringify(data)
+        })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Server error: ${res.statusText}`);
+          }
+          return res.json();
+        })
+        .catch(error => {
+          // Обработка ошибок сети или других проблем
+          console.error('There was a problem with the fetch operation:', error);
+          throw new Error('Network request failed');
+        });
+      }
 }
 
 export default Requests;
