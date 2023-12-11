@@ -1,0 +1,23 @@
+
+.contactItem{
+    box-shadow: 5px 1px 10px rgb(116, 116, 116);
+    border-radius: 20px;
+    .avatar {
+        height: 80px;
+        width: 80px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
+    .userName{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        p{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: small;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.avatar {
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    p {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: small;
+    }
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.itemSend{
+    box-shadow: 5px 1px 10px rgb(116, 116, 116);
+    border-radius: 20px;
+}

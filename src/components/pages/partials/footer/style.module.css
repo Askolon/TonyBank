@@ -1,0 +1,9 @@
+.active {
+    opacity: 1;
+    color: black;
+    font-weight: bold;
+}
+.deactive{
+    color:black;
+    opacity: 0.7;
+}

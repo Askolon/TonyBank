@@ -1,0 +1,12 @@
+.transactionList {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    .amount {
+        h1 {
+            text-align: center;
+            font-size: x-large;
+            font-weight: 500;
+        }
+    }
+}
