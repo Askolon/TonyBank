@@ -3,8 +3,9 @@ import avatar from '../../../../assets/icons/avatar.png';
 import bell from '../../../../assets/icons/bell.svg';
 import { useState } from "react";
 import Requests from "../../../../services/requests";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import avatarIco from '../../../../assets/icons/avatar.png';
+import { useEffect } from "react";
 
 function HeaderPrivate(props) {
     const { avatar, balance, notifications, username, fullName, token } = props;
@@ -24,8 +25,24 @@ function HeaderPrivate(props) {
         requests.POST_LOGOUT_USER(token);
         navigation("/login"); // redirect to login
     }
-    
-    const [notifNumbers, setNotifNumbers] = useState(notifications.length);
+
+    const [notifNumbers, setNotifNumbers] = useState(notifications ? notifications.length : 0);
+
+
+    useEffect(() => {
+        if (notifications && notifications.length !== undefined) {
+            setNotifNumbers(notifications.length);
+        }
+    }, [notifications]);
+
+    const handleNotifications = () => {
+        const notificationsArr = {
+            notifications: notifications
+          };
+        //requests.DELETE_NOTIFICATIONS(token);
+        
+        navigation("/notificationspage", { state: notificationsArr });
+    };
 
     return (
 
@@ -34,7 +51,7 @@ function HeaderPrivate(props) {
                 <div className="col-6">
                     <h1>Dashboard</h1>
                 </div>
-                <div className="col-6 avatar_ctn">
+                <div className="col-6 avatar_ctn_header">
                     <div className="avatar" style={{ backgroundImage: `url(${avatar === "any" ? avatarIco : avatar})` }} onClick={handleModal}></div>
                 </div>
             </div>
@@ -53,12 +70,13 @@ function HeaderPrivate(props) {
                             <h1>$ {balance}</h1>
                         </div>
                         <div className="col-6 bellcoll">
-                            <div className="bell position-relative" style={{ backgroundImage: `url(${bell})` }}>
-                                <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {notifNumbers >= 1 ? notifNumbers : 0}
-                                    <span class="visually-hidden">requests</span>
-                                </span>
-                            </div>
+                                <div className="bell position-relative" style={{ backgroundImage: `url(${bell})` }} onClick={handleNotifications}>
+                                    <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
+                                        {notifNumbers >= 1 ? notifNumbers : 0}
+                                        <span class="visually-hidden">requests</span>
+                                    </span>
+                                </div>
+
 
                         </div>
                     </div>

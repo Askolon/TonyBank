@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Icon, Typography } from "@mui/material";
 import React from "react";
 
 const customBtnStyle = {
@@ -16,6 +16,7 @@ const GrayBtn = ({ text, onClick, icon = null, disabled = false }) => {
       onClick={onClick}
       disabled={disabled}
     >
+      <Icon>{icon}</Icon>
       <Typography>{text}</Typography>
     </Button>
   );

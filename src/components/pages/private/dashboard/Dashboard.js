@@ -51,10 +51,10 @@ function Dashboard(props) {
                 <div className="btn_ctn mt-4">
                     <div className="row">
                         <div className="col">
-                            <YellowBtn text={"send"} />
+                            <Link to={"/sendtoall"}><YellowBtn text={"send"} /></Link>
                         </div>
                         <div className="col">
-                            <RequestBtn text={"Request"} />
+                            <Link to={"/request"}><RequestBtn text={"Request"} /></Link>
                         </div>
                     </div>
                 </div>

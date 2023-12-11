@@ -28,7 +28,7 @@ export default function LastTransaction(props) {
                 </div>
             </div>
                 <div className="row " data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-                    {transactionsNew && transactionsNew.reverse().map( t => <TransactionItem key={t.data} {...t}/>)}    
+                    {transactionsNew && transactionsNew.reverse().map( t => <TransactionItem key={Math.random()} {...t}/>)}    
             </div>
         </div>
     </div>

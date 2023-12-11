@@ -7,7 +7,9 @@ class Requests{
             destroy_session: "destroy-session",
             me: 'me',
             users:"users",
-            transaction:"transaction"
+            transaction:"transaction",
+            transactionRequest: "transaction-request",
+            notifications:"notifications"
         }
     }
 
@@ -114,6 +116,51 @@ class Requests{
           headers: {
             "Content-Type": "application/json",
             "x-access-token": token
+          },
+          body: JSON.stringify(data)
+        })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Server error: ${res.statusText}`);
+          }
+          return res.json();
+        })
+        .catch(error => {
+          // Обработка ошибок сети или других проблем
+          console.error('There was a problem with the fetch operation:', error);
+          throw new Error('Network request failed');
+        });
+      }
+
+      //Delete Notification
+      DELETE_NOTIFICATIONS(token){
+        return fetch(this.apiBase + this.routes.notifications,{
+            method:"DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "x-access-token": token
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+              throw new Error(`Server error: ${res.statusText}`);
+            }
+            return res.json();
+          })
+          .catch(error => {
+            // Обработка ошибок сети или других проблем
+            console.error('There was a problem with the fetch operation:', error);
+            throw new Error('Network request failed');
+          });
+      }
+
+      // Transaction Request
+      POST_TRANSACTION_REQUEST(token, data){
+        return fetch(this.apiBase + this.routes.transactionRequest,{
+          method:"POST",
+          headers:{
+            "Content-Type": "application/json",
+             "x-access-token": token
           },
           body: JSON.stringify(data)
         })

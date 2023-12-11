@@ -25,6 +25,11 @@ import Contacts from "./pages/partials/contacts/Contacts";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SendMoney from "./pages/private/sendMoney/SendMoney";
+import NotificationsPage from "./pages/private/notificationsPage/NotificationsPage";
+import SendToAll from "./pages/private/sendToAll/SendToAll";
+import RequestFromAll from "./pages/private/requestfromall/RequestFromAll";
+import TransactionInfo from "./pages/private/transactionInfo/TransactionInfo";
+import ProfileSettings from "./pages/private/profileSettings/ProfileSettings";
 
 function App() {
   const publicPages = [
@@ -87,6 +92,27 @@ function App() {
       element: <SendMoney />,
       path: '/sendmoney'
     },
+    {
+      element: <NotificationsPage />,
+      path: '/notificationspage'
+    },
+    {
+      element: <SendToAll />,
+      path: '/sendtoall'
+    },
+    {
+      element: <RequestFromAll />,
+      path: '/request'
+    },
+    {
+      element: <TransactionInfo />,
+      path: '/transactioninfo'
+    },
+    {
+      element: <ProfileSettings />,
+      path: '/profilesettings/:id'
+    },
+
 
   ];
 

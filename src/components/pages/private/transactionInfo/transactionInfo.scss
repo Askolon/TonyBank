@@ -1,0 +1,39 @@
+.avatar_ctn{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    .avatar{
+        width: 80px;
+        height: 80px;
+        box-shadow: 5px 5px 10px black;
+    }
+}
+.amount_ctn{
+    font-size: xx-large;
+    font-weight: 500;
+}
+.userName_ctn{
+    font-size: x-large;
+    font-weight: 300;
+}
+.modal_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: #687fffa6;
+    .modal_ctn{
+        position: relative;
+        top: 40vh;
+        bottom: 0;
+        h1,h2{
+            font-size: x-large;
+            color: white;
+            text-shadow: 2px 1px black;
+            text-align: center;
+        }
+    }
+}

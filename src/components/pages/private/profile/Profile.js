@@ -38,20 +38,37 @@ function Profile(props) {
 
     return (
         <div className='profile_main'>
-            <h1>Profile</h1>
             <div className="container">
-                <InputCustom
-                    placeholder="change your name"
-                    type="text"
-                    value={name}
-                    onChange={handleNameChange} />
+                <div className="row">
+                    <div className="col mt-3">
+                        <h1>Profile</h1>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <InputCustom
+                            placeholder="change your name"
+                            type="text"
+                            value={name}
+                            onChange={handleNameChange} />
+                    </div>
+                </div>
+                <div className="row mt-3">
+                    <div className="col">
+                        <InputCustom
+                            placeholder="change your avatar/ url"
+                            type="url"
+                            value={avatar}
+                            onChange={handleAvatarChange} />
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col-6 mx-auto">
+                        <PrimaryBtn text="save" onClick={handleLogin} />
+                    </div>
+                </div>
 
-                <InputCustom
-                    placeholder="change your avatar/ url"
-                    type="url"
-                    value={avatar}
-                    onChange={handleAvatarChange} />
-                <PrimaryBtn text="save" onClick={handleLogin} />
+
             </div>
             <Footer />
         </div>

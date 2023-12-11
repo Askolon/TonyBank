@@ -63,15 +63,15 @@ export default function SendMoney(props) {
 
 
   return (
-    <div>
+    <div className='container'>
       <div className='row'>
-        <div className="col-6 mx-auto mt-5">
+        <div className="col-4 mx-auto mt-5">
           <div className="avatar" style={{ backgroundImage: `url(${resivedData.avatar === "" ? avatarBase : resivedData.avatar})` }}>
 
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row context">
         <div className="col">
           <h1>
             {resivedData.username}

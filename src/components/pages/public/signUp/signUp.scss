@@ -24,3 +24,24 @@
         }
     }   
 }
+.modal_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: #687fffa6;
+    .modal_ctn{
+        position: relative;
+        top: 40vh;
+        bottom: 0;
+        h1,h2{
+            font-size: x-large;
+            color: white;
+            text-shadow: 2px 1px black;
+            text-align: center;
+        }
+    }
+}
